@@ -6,3 +6,7 @@ user.set({ name: 'newname' });
 
 console.log(user.get('name'));
 console.log(user.get('age'));
+
+user.on('test', () => {});
+
+console.log(user);
