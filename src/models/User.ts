@@ -23,4 +23,8 @@ export class User {
     handlers.push(callback);
     this.events[eventName] = handlers;
   }
+
+  trigger(eventName: string): void {
+    this.events[eventName]?.forEach((callback) => callback());
+  }
 }

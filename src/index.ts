@@ -7,6 +7,11 @@ user.set({ name: 'newname' });
 console.log(user.get('name'));
 console.log(user.get('age'));
 
-user.on('test', () => {});
+user.on('test', () => {
+  console.log('testing!!!');
+});
 
 console.log(user);
+
+user.trigger('test');
+user.trigger('blabla');
