@@ -1,13 +1,13 @@
 import { join } from 'path';
 import { User } from './models/User';
 
-const user = new User({ id: 1, name: 'alice', age: 12 });
+const user = User.buildUser({ id: 1, name: 'brian', age: 12 });
 
 // user.set({ name: 'KEVIN GILPS', age: 99 });
 
 // user.save();
 
-user.events.on('save', () => {
+user.on('change', () => {
   console.log(user);
 });
 
@@ -17,6 +17,5 @@ user.events.on('save', () => {
 
 // console.log(user.get('name'));
 
-// user.fetch();
-
-user.save();
+user.set({ name: 'bib' });
+user.save().then(() => user.fetch());

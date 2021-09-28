@@ -44,21 +44,21 @@ export class Model<T extends HasId> {
     return this.events.trigger;
   }
 
-  fetch(): void {
+  fetch(): Promise<void | AxiosPromise> {
     const id = this.get('id');
 
     if (typeof id !== 'number') {
       throw new Error('Cannot fetch without an id');
     }
 
-    this.sync
+    return this.sync
       .fetch(id)
       .then((res: AxiosResponse) => res.data)
       .then((data: T) => this.set(data));
   }
 
-  save(): void {
-    this.sync
+  save(): Promise<void | AxiosPromise> {
+    return this.sync
       .save(this.attributes.getAll())
       .then((res: AxiosResponse): void => {
         this.trigger('save');
