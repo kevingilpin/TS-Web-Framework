@@ -1,3 +1,4 @@
+import { join } from 'path';
 import { User } from './models/User';
 
 const user = new User({ name: 'Alice', age: 30 });
@@ -11,3 +12,5 @@ user.events.on('change', () => {
 });
 
 user.events.trigger('change');
+
+console.log(user.get('name'));
