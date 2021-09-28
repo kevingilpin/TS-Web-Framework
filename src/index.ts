@@ -18,3 +18,10 @@ user.events.on('change', () => {
 // console.log(user.get('name'));
 
 user.fetch();
+
+user.set({ name: 'brian' });
+
+console.log(user.get('name'));
+
+user.save();
+user.fetch();

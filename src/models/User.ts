@@ -49,4 +49,8 @@ export class User {
       .then((res: AxiosResponse) => res.data)
       .then((data: UserProps) => this.set(data));
   }
+
+  save(): void {
+    this.sync.save(this.attributes.getAll());
+  }
 }
