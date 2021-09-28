@@ -1,18 +1,20 @@
 import { join } from 'path';
 import { User } from './models/User';
 
-const user = new User({ name: 'Alice', age: 30 });
+const user = new User({ id: 1, name: 'kevin', age: 99 });
 
 // user.set({ name: 'KEVIN GILPS', age: 99 });
 
 // user.save();
 
 user.events.on('change', () => {
-  console.log('User was changed, we probably need to update some HTML');
+  console.log(user);
 });
 
 // user.events.trigger('change');
 
-user.set({ name: 'Kevin' });
+// user.set({ name: 'Kevin' });
 
-console.log(user.get('name'));
+// console.log(user.get('name'));
+
+user.fetch();
