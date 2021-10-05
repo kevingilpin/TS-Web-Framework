@@ -27,22 +27,16 @@ export class Model<T extends HasId> {
     private sync: Sync<T>
   ) {}
 
-  get get() {
-    return this.attributes.get;
-  }
+  get = this.attributes.get;
 
   set(update: T): void {
     this.attributes.set(update);
     this.events.trigger('change');
   }
 
-  get on() {
-    return this.events.on;
-  }
+  on = this.events.on;
 
-  get trigger() {
-    return this.events.trigger;
-  }
+  trigger = this.events.trigger;
 
   fetch(): Promise<void | AxiosPromise> {
     const id = this.get('id');

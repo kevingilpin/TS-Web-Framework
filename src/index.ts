@@ -8,7 +8,7 @@ const user = User.buildUser({ id: 1, name: 'brian', age: 12 });
 // user.save();
 
 user.on('change', () => {
-  console.log(user);
+  console.log('yellow!');
 });
 
 // user.events.trigger('change');
