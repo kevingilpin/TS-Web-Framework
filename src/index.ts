@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { User } from './models/User';
+import { User, UserProps } from './models/User';
 import axios, { AxiosResponse } from 'axios';
 import { Collection } from './models/Collection';
 
@@ -22,7 +22,10 @@ const user = User.buildUser({ id: 1, name: 'brian', age: 12 });
 // user.set({ name: 'bib' });
 // user.save().then(() => user.fetch());
 
-const collection = new Collection('http://localhost:3000/users');
+const collection = new Collection<User, UserProps>(
+  'http://localhost:3000/users',
+  (json: UserProps) => User.buildUser(json)
+);
 
 collection.on('change', () => {
   console.log(collection);
