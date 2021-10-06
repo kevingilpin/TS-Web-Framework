@@ -1,6 +1,7 @@
 import { User } from './models/User';
+import { UserForm } from './views/UserForm';
 
-const user = User.buildUser({ id: 1, name: 'brian', age: 12 });
+// const user = User.buildUser({ id: 1, name: 'brian', age: 12 });
 
 // user.set({ name: 'KEVIN GILPS', age: 99 });
 
@@ -19,9 +20,13 @@ const user = User.buildUser({ id: 1, name: 'brian', age: 12 });
 // user.set({ name: 'bib' });
 // user.save().then(() => user.fetch());
 
-const collection = User.buildUserCollection();
+// const collection = User.buildUserCollection();
 
-collection.on('change', () => {
-  console.log(collection);
-});
-collection.fetch();
+// collection.on('change', () => {
+//   console.log(collection);
+// });
+// collection.fetch();
+
+const userForm = new UserForm(document.getElementById('root'));
+
+userForm.render();
