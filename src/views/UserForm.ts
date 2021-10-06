@@ -23,8 +23,8 @@ export class UserForm {
   };
 
   onSetNameClick = (): void => {
-    const name = this.parent.querySelector('input').value;
-    this.model.set({ name });
+    const name = this.parent.querySelector('input')?.value;
+    if (name) this.model.set({ name });
   };
 
   template(): string {
