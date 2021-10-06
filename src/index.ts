@@ -1,7 +1,7 @@
 import { User } from './models/User';
 import { UserForm } from './views/UserForm';
 
-const user = User.buildUser({ name: 'Ryan', age: 20 });
+const user = User.buildUser({ id: 5, name: 'Ryan', age: 20 });
 
 // user.set({ name: 'KEVIN GILPS', age: 99 });
 
