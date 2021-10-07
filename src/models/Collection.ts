@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse, AxiosPromise } from 'axios';
 import { Eventing } from './Eventing';
 
 export class Collection<T, K> {
@@ -15,8 +15,8 @@ export class Collection<T, K> {
     return this.events.trigger;
   }
 
-  fetch(): void {
-    axios.get(this.rootUrl).then((response: AxiosResponse) => {
+  fetch(): Promise<void | AxiosResponse<any>> {
+    return axios.get(this.rootUrl).then((response: AxiosResponse) => {
       response.data.forEach((value: K) => {
         this.models.push(this.deserialize(value));
       });
